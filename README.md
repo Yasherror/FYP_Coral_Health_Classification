@@ -37,7 +37,7 @@ This project is a Final Year Project (FYP) that uses image classification techni
    cd FYP_Coral_Health_Classification
 
 
-   Create a virtual environment (recommended)
+2. Create a virtual environment (recommended)
 
 bash
 python -m venv venv
@@ -46,7 +46,8 @@ python -m venv venv
 venv\Scripts\activate
 # macOS/Linux
 source venv/bin/activate
-Install dependencies
+
+3. Install dependencies
 
 bash
 pip install -r requirements.txt
