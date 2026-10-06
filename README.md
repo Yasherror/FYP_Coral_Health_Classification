@@ -1,90 +1,215 @@
 # 🪸 Coral Health Classification
 
-A Streamlit dashboard for classifying coral health status using machine learning.
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.0+-red.svg)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange.svg)
+![Accuracy](https://img.shields.io/badge/Accuracy-86%25-brightgreen.svg)
+![License](https://img.shields.io/badge/License-Academic-lightgrey.svg)
 
-## 📋 Overview
+A Streamlit dashboard for classifying coral health status using deep learning. This Final Year Project (FYP) applies image classification techniques to assess coral reef health from uploaded images, providing researchers and conservationists with a fast, automated monitoring tool.
 
-This project is a Final Year Project (FYP) that uses image classification techniques to assess coral reef health. The dashboard provides an interactive interface for uploading coral images and receiving health predictions.
+---
+
+## 📋 Table of Contents
+
+- [Overview](#-overview)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Dataset](#-dataset)
+- [Model](#-model)
+- [Results](#-results)
+- [Live Demo](#-live-demo)
+- [Author](#-author)
+- [Acknowledgements](#-acknowledgements)
+- [License](#-license)
+
+---
+
+## 🔍 Overview
+
+Coral reefs are critical to marine ecosystems but are increasingly threatened by climate change, pollution, and disease. This project provides an automated tool to classify coral health from images, helping researchers and conservationists monitor reef conditions more efficiently.
+
+The system uses multiple pretrained deep learning models to analyze uploaded coral images and predict their health status across three categories: **Healthy**, **Compromised**, and **Dead**.
+
+---
 
 ## ✨ Features
 
-- Upload coral images for classification
-- Real-time prediction with confidence scores
-- Visual dashboard for coral health analytics
-- Preprocessed dataset pipeline
+- 📤 Upload coral images through an interactive Streamlit interface
+- 🤖 Real-time classification with confidence scores
+- 🧠 Multiple model architectures (ResNet50, EfficientNet, VGG16, MobileNet-V3)
+- 📊 Visual dashboard showing prediction breakdowns
+- 🖼️ Image preview before and after classification
+- ⚡ Fast inference pipeline optimized for real-time use
+- 📈 Preprocessed dataset pipeline for consistent inputs
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** Streamlit
-- **Language:** Python
-- **ML Framework:** PyTorch **
-- **Data Processing:** NumPy, Pandas, OpenCV
+| Category | Technology |
+|----------|-----------|
+| Frontend | Streamlit |
+| Language | Python 3.9+ |
+| ML Framework | PyTorch |
+| Model Architectures | ResNet50, EfficientNet, VGG16, MobileNet-V3 |
+| Image Processing | OpenCV, Pillow |
+| Data Handling | NumPy, Pandas |
+| Visualization | Matplotlib, Plotly |
+
+---
 
 ## 📁 Project Structure
+
+```
+FYP_Coral_Health_Classification/
+├── src/
+│   ├── app.py                              # Main Streamlit application
+│   ├── requirements.txt                    # Python dependencies
+│   ├── components/
+│   │   ├── data/                           # Data files (large ZIP excluded)
+│   │   └── ...                             # Other UI components
+│   ├── models/                             # Trained model weights (.pth)
+│   ├── utils/                              # Helper functions & preprocessing
+│   └── assets/                             # Images, icons, styles
+├── .gitignore
+└── README.md
+```
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Python 3.9+
-- pip
+- Python 3.9 or higher
+- pip package manager
+- Git
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository**
    ```bash
    git clone https://github.com/Yasherror/FYP_Coral_Health_Classification.git
    cd FYP_Coral_Health_Classification
+   ```
 
+2. **Create a virtual environment** (recommended)
+   ```bash
+   python -m venv venv
 
-2. Create a virtual environment (recommended)
+   # Windows
+   venv\Scripts\activate
 
-bash
-python -m venv venv
+   # macOS/Linux
+   source venv/bin/activate
+   ```
 
-# Windows
-venv\Scripts\activate
-# macOS/Linux
-source venv/bin/activate
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Install dependencies
+4. **Run the Streamlit app**
+   ```bash
+   streamlit run app.py
+   ```
 
-bash
-pip install -r requirements.txt
-Run the Streamlit app
+5. **Open your browser** at `http://localhost:8501`
 
-bash
-streamlit run app.py
-Open your browser at http://localhost:8501
+---
 
-🎯 Usage
-Launch the Streamlit dashboard using the command above
+## 🎯 Usage
 
-Upload a coral image (JPG/PNG) using the file uploader
+1. Launch the Streamlit dashboard using the command above
+2. Upload a coral image (JPG/PNG) using the file uploader
+3. Select the model architecture you want to use *(if applicable)*
+4. Wait for the model to process the image
+5. View the predicted health class and confidence score
+6. Explore the visualizations for deeper insights
 
-Wait for the model to process the image
+---
 
-View the predicted health class and confidence score
+## 📊 Dataset
 
-Explore the visualizations for more insights
+The processed coral image dataset is **not included** in this repository due to GitHub's file size limits (the ZIP file exceeds 100 MB).
 
-📊 Dataset
-The processed coral image dataset is not included in this repository due to GitHub's file size limits (the ZIP file exceeds 100 MB).
+| Property | Details |
+|----------|---------|
+| **Source** | [CoralConditionDataset](https://github.com/XL-SHAO/CoralConditionDataset) |
+| **Total Images** | 19,974 |
+| **Classes** | Healthy, Compromised, Dead |
+| **Input Size** | 224 × 224 × 3 |
 
-Source: https://github.com/XL-SHAO/CoralConditionDataset
+To reproduce the training pipeline, download the dataset from the source above and run the preprocessing scripts in `src/utils/`.
 
-Size: 19974
+---
 
-Classes: Healthy, Compromised, Dead]
+## 🧠 Model
 
+Four pretrained architectures were trained and evaluated for this project. The best-performing model is used in the deployed dashboard.
 
-🧠 Model
-Architecture: ResNet50, EfficientNet, VGG16, MobileNet-V3
+| Property | Details |
+|----------|---------|
+| **Architectures Tested** | ResNet50, EfficientNet, VGG16, MobileNet-V3 |
+| **Training Framework** | PyTorch |
+| **Input Size** | 224 × 224 × 3 |
+| **Number of Classes** | 3 (Healthy, Compromised, Dead) |
+| **Best Accuracy** | **86%** |
+| **Transfer Learning** | Yes (ImageNet pretrained weights) |
 
-Training Framework: Pytorch
+### Training Highlights
 
-Accuracy: 86%
+- Transfer learning with ImageNet-pretrained weights
+- Data augmentation (flips, rotations, color jitter)
+- Stratified train/validation/test split
+- Early stopping and learning rate scheduling
 
-Input Size: 224x224x3
+---
 
-Classes: 3 classes
+## 📈 Results
+
+| Model | Accuracy |
+|-------|----------|
+| ResNet50 | *[fill in]* |
+| EfficientNet | *[fill in]* |
+| VGG16 | *[fill in]* |
+| MobileNet-V3 | *[fill in]* |
+| **Best Model** | **86%** |
+
+*[Add a confusion matrix or sample predictions image here for extra polish]*
+
+---
+
+## 🌐 Live Demo
+
+🔗 *[Add your Streamlit Cloud link here after deployment]*
+
+---
+
+## 👤 Author
+
+**Yashreen**
+- GitHub: [@Yasherror](https://github.com/Yasherror)
+- Institution: *Asia Pacific University of Technology & Innovation (APU)*
+
+---
+
+## 🙏 Acknowledgements
+
+- [CoralConditionDataset](https://github.com/XL-SHAO/CoralConditionDataset) by XL-SHAO for providing the coral image dataset
+- *Asia Pacific University of Technology & Innovation (APU)*
+- The open-source PyTorch and Streamlit communities
+
+---
+
+## 📄 License
+
+This project is developed as part of an academic Final Year Project. All rights reserved.
+
+---
+
+⭐ If you find this project useful, please consider giving it a star!
