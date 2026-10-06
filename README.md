@@ -1,10 +1,5 @@
 # 🪸 Coral Health Classification
 
-![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.0+-red.svg)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange.svg)
-![Accuracy](https://img.shields.io/badge/Accuracy-86%25-brightgreen.svg)
-![License](https://img.shields.io/badge/License-Academic-lightgrey.svg)
 
 A Streamlit dashboard for classifying coral health status using deep learning. This Final Year Project (FYP) applies image classification techniques to assess coral reef health from uploaded images, providing researchers and conservationists with a fast, automated monitoring tool.
 
