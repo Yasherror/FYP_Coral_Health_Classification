@@ -19,7 +19,7 @@ from data_utils import load_dataset, build_site_geo, CSV_PATH  # Local helpers
 # --------------------------------------------------------------------------- #
 # Gemini credentials 
 # --------------------------------------------------------------------------- #
-GEMINI_API_KEY = "AQ.Ab8RN6Inx_rB6mjWmoWLvVqFwt4LKd3uO9rOPvIN7qK5meSOWA"
+# GEMINI_API_KEY = "Add you own Gemini API key"
 
 # Preferred models, best-first. Do NOT hard-code a single name — 
 # key actually supports and uses the first that works.
